@@ -104,6 +104,77 @@ const GS = () => (
     input:focus, textarea:focus, select:focus { border-color:${C.brown}; }
     label.field { display:flex; flex-direction:column; gap:6px; }
     label.field span { font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:${C.camel}; }
+
+    /* ─── MOBILE ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+
+      /* Announcement bar */
+      body > * { font-size: 9px; }
+
+      /* Nav */
+      nav > div > div:first-child { height: 56px !important; padding: 0 16px !important; }
+
+      /* Hero padding */
+      div[class~="fu"] h1 { font-size: 28px !important; }
+
+      /* Product grid: single column */
+      div[style*="auto-fill"] {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+
+      /* Bigger touch targets for buttons */
+      button, .btn-p, .btn-o, .btn-g {
+        min-height: 48px;
+      }
+
+      /* Reduce padding on mobile */
+      div[style*="40px 28px 80px"] {
+        padding: 20px 14px 48px !important;
+      }
+
+      /* Cart drawer full width */
+      div[style*="slideR"] {
+        width: 100vw !important;
+        max-width: 100vw !important;
+      }
+
+      /* Product modal bottom sheet */
+      div[class~="si"][style*="max-width:480px"] {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        max-height: 92vh !important;
+        border-radius: 20px 20px 0 0 !important;
+        margin: 0 !important;
+      }
+
+      /* Footer padding */
+      footer { padding: 36px 16px 28px !important; }
+
+      /* Input fields easier to tap */
+      input, select, textarea { font-size: 16px !important; padding: 14px 16px !important; }
+
+      /* Categories nav */
+      div[style*="overflowX"] button { padding: 14px 14px !important; font-size: 9px !important; }
+
+      /* Filter pills */
+      div[style*="gap:8"] > button { padding: 9px 14px !important; font-size: 9px !important; }
+
+      /* Hide admin button on mobile */
+      button[style*="bottom:18"] { display: none !important; }
+    }
+
+    @media (max-width: 430px) {
+      nav img { height: 26px !important; }
+      div[style*="auto-fill"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
   `}</style>
 );
 
@@ -349,14 +420,7 @@ const Store = ({ products, cart, onAdd, onOpenCart }) => {
 
       {/* GRID */}
       <div id="productos" style={{ maxWidth:1100, margin:"0 auto", padding:"40px 28px 80px" }}>
-        <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:28 }}>
-          {cats.map(c => (
-            <button key={c} onClick={() => setCat(c)}
-              style={{ padding:"8px 20px", border:`1.5px solid ${cat===c ? C.brown : C.sand}`, background:cat===c ? C.brown : "transparent", color:cat===c ? C.white : C.camel, cursor:"pointer", fontFamily:"'Montserrat',sans-serif", fontWeight:600, fontSize:10, letterSpacing:".1em", textTransform:"uppercase", transition:"all .18s" }}>
-              {c}
-            </button>
-          ))}
-        </div>
+
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(270px,1fr))", gap:20 }}>
           {list.map((p,i) => {
             const st = totalStock(p);
