@@ -138,7 +138,7 @@ const CartDrawer = ({ cart, onClose, onQty, onRemove }) => {
       <div style={{ position:"absolute", right:0, top:0, bottom:0, width:"min(420px,100vw)", background:C.white, display:"flex", flexDirection:"column", animation:"slideR .3s cubic-bezier(.22,.61,.36,1)", boxShadow:"-6px 0 32px rgba(42,26,14,.12)" }}>
 
         <div style={{ padding:"22px 28px 18px", borderBottom:`1px solid ${C.cream}`, display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-          <img src={LOGO_COLOR_TRANSP} alt="RAME" style={{ height:22, objectFit:"contain" }} />
+          <img src={LOGO_CAMEL_ON_CREAM} alt="RAME" style={{ height:22, objectFit:"contain" }} />
           <button onClick={onClose} style={{ width:32, height:32, border:`1px solid ${C.sand}`, background:"none", cursor:"pointer", color:C.camel, fontSize:14, display:"flex", alignItems:"center", justifyContent:"center" }}>✕</button>
         </div>
 
@@ -302,7 +302,7 @@ const Store = ({ products, cart, onAdd, onOpenCart }) => {
       {/* NAV */}
       <nav style={{ position:"sticky", top:0, zIndex:200, background:C.white, borderBottom:`1px solid ${C.cream}` }}>
         <div style={{ maxWidth:1100, margin:"0 auto", height:66, padding:"0 28px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-          <img src={LOGO_COLOR_TRANSP} alt="RAME activewear" style={{ height:28, objectFit:"contain" }} />
+          <img src={LOGO_CAMEL_ON_CREAM} alt="RAME activewear" style={{ height:28, objectFit:"contain" }} />
           <div style={{ display:"flex", alignItems:"center", gap:20 }}>
             <a href={`https://wa.me/${WA}`} target="_blank" rel="noreferrer" style={{ fontSize:10, fontWeight:600, letterSpacing:".12em", textTransform:"uppercase", color:C.camel, textDecoration:"none" }}>WhatsApp</a>
             <a href="https://instagram.com/rameactivewear" target="_blank" rel="noreferrer" style={{ fontSize:10, fontWeight:600, letterSpacing:".12em", textTransform:"uppercase", color:C.camel, textDecoration:"none" }}>Instagram</a>
